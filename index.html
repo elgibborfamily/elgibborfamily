@@ -13,6 +13,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'media',
             theme: {
                 extend: {
                     fontFamily: {
@@ -72,7 +73,7 @@
         }
     </style>
 </head>
-<body class="font-sans text-gray-700 bg-gray-50 antialiased selection:bg-church-500 selection:text-white">
+<body class="font-sans text-gray-700 dark:text-gray-200 bg-gray-50 dark:bg-gray-900 antialiased selection:bg-church-500 selection:text-white transition-colors duration-300">
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -148,7 +149,7 @@
         </div>
     </header>
 
-    <section id="tentang" class="py-20 bg-white">
+    <section id="tentang" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
             <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Tentang Kami</h2>
             <div class="w-24 h-1 bg-church-500 mx-auto rounded-full mb-12"></div>
@@ -360,7 +361,7 @@
         
     </section>
 
-    <section id="pelayanan" class="py-20 bg-white">
+    <section id="pelayanan" class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
             <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">Pelayanan & Komunitas</h2>
             <div class="w-24 h-1 bg-church-500 mx-auto rounded-full mb-12"></div>
