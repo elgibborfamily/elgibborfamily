@@ -26,12 +26,12 @@
                             200: '#99f6e4',
                             300: '#5eead4',
                             400: '#2dd4bf',
-                            500: '#0564C2', // Primary Calm Teal
+                            500: '#0564C2',
                             600: '#6405C2',
                             700: '#0f766e',
                             800: '#115e59',
                             900: '#134e4a',
-                            accent: '#05eb8', // Warm gold
+                            accent: '#d97706', // Warm gold hex code
                         }
                     }
                 }
@@ -68,7 +68,7 @@
         
         /* Hero Overlay Gradient */
         .hero-overlay {
-            background: linear-gradient(to bottom, colors : '#05eb8', rgba(17, 24, 39, 0.4));
+            background: linear-gradient(to bottom, rgba(17, 24, 39, 0.7), rgba(17, 24, 39, 0.4));
         }
     </style>
 </head>
@@ -77,16 +77,17 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
-                    <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
                     <a href="#beranda" class="font-serif text-2xl font-bold tracking-wider flex items-center gap-3">
                         <!-- Gambar Logo PNG -->
                         <img src="Logo EL-GIBBOR.png" 
+                             alt="Logo GPdI EL-GIBBOR"
                              class="h-11 w-11 rounded-full object-cover border-2 border-white/80 shadow-md transition-transform duration-300 hover:scale-105">
                         <!-- Teks Nama Gereja -->
-                            <span>EL-GIBBOR <span class="text-church-accent">Family</span></span>
-                        </a>
-                    </div>
+                        <span>EL-GIBBOR <span class="text-church-accent">Family</span></span>
+                    </a>
+                </div>
                 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
@@ -410,7 +411,6 @@
 
     <section id="kontak" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-            
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <!-- Contact Info -->
                 <div>
@@ -418,8 +418,8 @@
                     <div class="w-24 h-1 bg-church-500 rounded-full mb-8"></div>
                     <p class="text-gray-600 mb-8">Kami ingin mendengar dari Anda. Apakah Anda memiliki pertanyaan, butuh dukungan doa, atau ingin bergabung dengan pelayanan kami? Silakan hubungi kami.</p>
                     
-                <div class="space-y-6">
-                <div class="flex items-start gap-4">
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
                             <div class="w-12 h-12 bg-church-50 text-church-500 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
@@ -434,7 +434,7 @@
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold text-gray-900">Telepon & WhatsApp</h4>
-                                <p class="text-gray-600"> 0852-5052-5600  <br> 0800 (WA Admin)</p>
+                                <p class="text-gray-600">0852-5052-5600 <br> 0800 (WA Admin)</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
@@ -463,78 +463,42 @@
                 </div>
 
                 <!-- Contact Form -->
-<div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
-    <h3 class="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan atau Permohonan Doa</h3>
-    
-    <form id="contactForm" class="space-y-4">
-        <div>
-            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-            <input type="text" id="name" name="from_name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-church-500 focus:border-church-500 outline-none transition-shadow">
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan atau Permohonan Doa</h3>
+                    
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                            <input type="text" id="name" name="from_name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-church-500 focus:border-church-500 outline-none transition-shadow">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email atau No. HP</label>
+                            <input type="text" id="email" name="user_contact" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-church-500 focus:border-church-500 outline-none transition-shadow">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan / Pokok Doa</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-church-500 focus:border-church-500 outline-none transition-shadow"></textarea>
+                        </div>
+                        <button type="submit" id="submitBtn" class="w-full bg-church-500 text-white font-bold py-3 px-4 rounded-xl hover:bg-church-600 transition-colors shadow-md">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                    
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="formSuccess" class="hidden mt-4 p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-xl"></i>
+                        <p>Terima kasih! Pesan Anda telah kami terima.</p>
+                    </div>
+
+                    <!-- Error Message (Hidden by default) -->
+                    <div id="formError" class="hidden mt-4 p-4 bg-red-50 text-red-700 rounded-xl border border-red-200 flex items-center gap-3">
+                        <i class="fa-solid fa-circle-xmark text-xl"></i>
+                        <p>Gagal mengirim pesan. Silakan periksa koneksi Anda dan coba lagi.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email atau No. HP</label>
-            <input type="text" id="email" name="user_contact" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-church-500 focus:border-church-500 outline-none transition-shadow">
-        </div>
-        <div>
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan / Pokok Doa</label>
-            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-church-500 focus:border-church-500 outline-none transition-shadow"></textarea>
-        </div>
-        <button type="submit" id="submitBtn" class="w-full bg-church-500 text-white font-bold py-3 px-4 rounded-xl hover:bg-church-600 transition-colors shadow-md">
-            Kirim Pesan
-        </button>
-    </form>
-    
-    <!-- Success Message (Hidden by default) -->
-    <div id="formSuccess" class="hidden mt-4 p-4 bg-green-50 text-green-700 rounded-xl border border-green-200 flex items-center gap-3">
-        <i class="fa-solid fa-circle-check text-xl"></i>
-        <p>Terima kasih! Pesan Anda telah kami terima.</p>
-    </div>
-
-    <!-- Error Message (Hidden by default) -->
-    <div id="formError" class="hidden mt-4 p-4 bg-red-50 text-red-700 rounded-xl border border-red-200 flex items-center gap-3">
-        <i class="fa-solid fa-circle-xmark text-xl"></i>
-        <p>Gagal mengirim pesan. Silakan periksa koneksi Anda dan coba lagi.</p>
-    </div>
-</div>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("YOUR_PUBLIC_KEY");
-  })();
-
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const submitBtn = document.getElementById('submitBtn');
-    const successMsg = document.getElementById('formSuccess');
-    const errorMsg = document.getElementById('formError');
-
-    // Sembunyikan notifikasi sebelumnya jika ada
-    successMsg.classList.add('hidden');
-    errorMsg.classList.add('hidden');
-
-    // Ubah status tombol saat proses pengiriman
-    submitBtn.innerText = "Mengirim...";
-    submitBtn.disabled = true;
-
-    emailjs.sendForm('service_gbtne09', 'template_gmdtzjl', this)
-      .then(function() {
-        // JIKA BERHASIL
-        successMsg.classList.remove('hidden');
-        document.getElementById('contactForm').reset();
-        submitBtn.innerText = "Kirim Pesan";
-        submitBtn.disabled = false;
-      }, function(error) {
-        // JIKA GAGAL
-        console.error("Detail Error EmailJS:", error);
-        errorMsg.classList.remove('hidden'); // Tampilkan pesan error di bawah form
-        submitBtn.innerText = "Kirim Pesan";  // Kembalikan teks tombol
-        submitBtn.disabled = false;          // Aktifkan kembali tombol agar pengguna bisa coba lagi
-      });
-  });
-</script>
-</section>
+    </section>
 
     <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -556,7 +520,15 @@
         </div>
     </footer>
 
+    <!-- SDK EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <script>
+        // Inisialisasi EmailJS (Pastikan ganti YOUR_PUBLIC_KEY dengan Public Key milik Anda)
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+
         // 1. Navbar Scroll Effect (Sticky & Transparent to Solid)
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -564,13 +536,13 @@
                 navbar.classList.add('bg-white', 'shadow-md', 'text-gray-900');
                 navbar.classList.remove('bg-transparent', 'text-white', 'py-4');
                 navbar.classList.add('py-2');
-                // Adjust logo color
-                document.querySelector('.fa-dove').classList.add('text-church-500');
+                const doveIcon = document.querySelector('.fa-dove');
+                if (doveIcon) doveIcon.classList.add('text-church-500');
             } else {
                 navbar.classList.remove('bg-white', 'shadow-md', 'text-gray-900', 'py-2');
                 navbar.classList.add('bg-transparent', 'text-white', 'py-4');
-                // Revert logo color
-                document.querySelector('.fa-dove').classList.remove('text-church-500');
+                const doveIcon = document.querySelector('.fa-dove');
+                if (doveIcon) doveIcon.classList.remove('text-church-500');
             }
         });
 
@@ -582,7 +554,6 @@
             mobileMenu.classList.toggle('open');
         });
 
-        // Close mobile menu when a link is clicked
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -597,18 +568,17 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Run once
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
             root: null,
-            threshold: 0.15, // Trigger when 15% visible
+            threshold: 0.15,
             rootMargin: "0px 0px -50px 0px"
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
         
-        // Trigger reveal immediately for elements already in viewport on load
         setTimeout(() => {
             revealElements.forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -618,22 +588,37 @@
             });
         }, 100);
 
-        // 4. Handle Contact Form Submission
-        function showFormSuccess() {
-            const form = document.getElementById('contactForm');
+        // 4. Handle Contact Form Submission via EmailJS
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
             const successMsg = document.getElementById('formSuccess');
-            
-            // Hide form and show success message
-            form.style.display = 'none';
-            successMsg.classList.remove('hidden');
-            
-            // Reset after 5 seconds
-            setTimeout(() => {
-                form.reset();
-                form.style.display = 'block';
-                successMsg.classList.add('hidden');
-            }, 5000);
-        }
-    </script>   
+            const errorMsg = document.getElementById('formError');
+
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+
+            submitBtn.innerText = "Mengirim...";
+            submitBtn.disabled = true;
+
+            emailjs.sendForm('service_gbtne09', 'template_gmdtzjl', this)
+                .then(function() {
+                    successMsg.classList.remove('hidden');
+                    document.getElementById('contactForm').reset();
+                    submitBtn.innerText = "Kirim Pesan";
+                    submitBtn.disabled = false;
+                    
+                    setTimeout(() => {
+                        successMsg.classList.add('hidden');
+                    }, 5000);
+                }, function(error) {
+                    console.error("Detail Error EmailJS:", error);
+                    errorMsg.classList.remove('hidden');
+                    submitBtn.innerText = "Kirim Pesan";
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
 </body>
 </html>
