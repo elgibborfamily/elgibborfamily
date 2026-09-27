@@ -520,7 +520,7 @@
     submitBtn.innerText = "Mengirim...";
     submitBtn.disabled = true;
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    emailjs.sendForm('service_gbtne09', 'template_dk4l28e', this)
       .then(function() {
         // JIKA BERHASIL
         successMsg.classList.remove('hidden');
@@ -636,41 +636,6 @@
                 successMsg.classList.add('hidden');
             }, 5000);
         }
-    </script>
-
-<script>
-  // Inisialisasi EmailJS dengan Public Key Anda
-  (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Ganti dengan Public Key EmailJS Anda
-  })();
-
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const submitBtn = document.getElementById('submitBtn');
-    const successMsg = document.getElementById('formSuccess');
-
-    // Ubah status tombol saat mengirim
-    submitBtn.innerText = "Mengirim...";
-    submitBtn.disabled = true;
-
-    // Kirim formulir via EmailJS
-    emailjs.sendForm('service_gbtne09', 'template_0bmf3g5', this)
-      .then(function() {
-        // Tampilkan pesan sukses jika berhasil
-        successMsg.classList.remove('hidden');
-        document.getElementById('contactForm').reset();
-        submitBtn.innerText = "Kirim Pesan";
-        submitBtn.disabled = false;
-      }, function(error) {
-        alert("Gagal mengirim pesan, silakan coba lagi.");
-        console.error("Error EmailJS:", error);
-        submitBtn.innerText = "Kirim Pesan";
-        submitBtn.disabled = false;
-      });
-  });
-    
-</script>
-                
+    </script>   
 </body>
 </html>
