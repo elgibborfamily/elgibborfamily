@@ -419,8 +419,8 @@
                     <div class="w-24 h-1 bg-church-500 rounded-full mb-8"></div>
                     <p class="text-gray-600 mb-8">Kami ingin mendengar dari Anda. Apakah Anda memiliki pertanyaan, butuh dukungan doa, atau ingin bergabung dengan pelayanan kami? Silakan hubungi kami.</p>
                     
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
+                <div class="space-y-6">
+                <div class="flex items-start gap-4">
                             <div class="w-12 h-12 bg-church-50 text-church-500 rounded-full flex items-center justify-center flex-shrink-0 text-xl">
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
@@ -593,5 +593,40 @@
             }, 5000);
         }
     </script>
+
+<script>
+  // Inisialisasi EmailJS dengan Public Key Anda
+  (function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // Ganti dengan Public Key EmailJS Anda
+  })();
+
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+
+    // Ubah status tombol saat mengirim
+    submitBtn.innerText = "Mengirim...";
+    submitBtn.disabled = true;
+
+    // Kirim formulir via EmailJS
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      .then(function() {
+        // Tampilkan pesan sukses jika berhasil
+        successMsg.classList.remove('hidden');
+        document.getElementById('contactForm').reset();
+        submitBtn.innerText = "Kirim Pesan";
+        submitBtn.disabled = false;
+      }, function(error) {
+        alert("Gagal mengirim pesan, silakan coba lagi.");
+        console.error("Error EmailJS:", error);
+        submitBtn.innerText = "Kirim Pesan";
+        submitBtn.disabled = false;
+      });
+  });
+    
+</script>
+                
 </body>
 </html>
